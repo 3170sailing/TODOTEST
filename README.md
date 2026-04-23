@@ -90,3 +90,19 @@ php artisan db:seed
 ```
 ## ER図
 ![alt](ER.png)
+
+| カラム名        | 型               | Primary key | Unique key | Not null | Foreign key | 説明                  |
+| ----------- | --------------- | ----------- | ---------- | -------- | ----------- | ------------------- |
+| id          | unsigned bigint | ○           |            | ○        |             | 主キー                 |
+| category_id | unsigned bigint |             |            | ○        | ○           | categoriesテーブルの外部キー |
+| content     | varchar(20)     |             |            | ○        |             | Todoの内容（20文字以内）     |
+| created_at  | timestamp       |             |            |          |             | レコード作成時刻            |
+| updated_at  | timestamp       |             |            |          |             | レコード更新時刻            |
+
+
+| カラム名       | 型               | Primary key | Unique key | Not null | Foreign key | 説明            |
+| ---------- | --------------- | ----------- | ---------- | -------- | ----------- | ------------- |
+| id         | unsigned bigint | ○           |            | ○        |             | 主キー           |
+| name       | varchar(10)     |             | ○          | ○        |             | カテゴリ名（10文字以内） |
+| created_at | timestamp       |             |            |          |             | レコード作成時刻      |
+| updated_at | timestamp       |             |            |          |             | レコード更新時刻      |
