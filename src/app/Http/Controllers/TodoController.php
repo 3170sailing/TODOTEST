@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\TodoRequest;
 use App\Models\Todo;
-use Illuminate\Http\Request;
+use App\Models\Category;
 
 class TodoController extends Controller
 {
@@ -14,23 +15,27 @@ class TodoController extends Controller
     public function index()
     {
         // 作成日の新しい順でTodoを取得
-        $todos = Todo::orderBy('created_at', 'desc')->get();
+        // categoryも一緒に取得して、view側でカテゴリ名を表示できるようにする
+        $todos = Todo::with('category')->orderBy('created_at', 'desc')->get();
+
+        // カテゴリ一覧を取得
+        $categories = Category::all();
 
         // index.blade.php に渡す
-        return view('index', compact('todos'));
+        return view('index', compact('todos', 'categories'));
     }
 
     /**
      * Todo追加
      */
     public function store(TodoRequest $request)
-    {
-        // 必要な値だけ取得して保存
-        $todo = $request->only(['content']);
-        Todo::create($todo);
+{
+    // content と category_id を取得して保存
+    $todo = $request->only(['content', 'category_id']);
+    Todo::create($todo);
 
-        return redirect('/')->with('message', 'Todoを作成しました');
-    }
+    return redirect('/')->with('message', 'Todoを作成しました');
+}
 
     /**
      * Todo更新
@@ -38,6 +43,7 @@ class TodoController extends Controller
     public function update(TodoRequest $request)
     {
         // 更新する値を取得
+        // 今回の要件に合わせて content を更新
         $todo = $request->only(['content']);
 
         // 指定されたidのTodoを更新
@@ -56,4 +62,31 @@ class TodoController extends Controller
 
         return redirect('/')->with('message', 'Todoを削除しました');
     }
+
+    /**
+ * Todo検索
+ */
+public function search(Request $request)
+{
+    // Todoとカテゴリを一緒に取得できるようにする
+    $query = Todo::with('category');
+
+    // キーワードが入力されている場合
+    if (!empty($request->keyword)) {
+        $query->where('content', 'like', '%' . $request->keyword . '%');
+    }
+
+    // カテゴリが選択されている場合
+    if (!empty($request->category_id)) {
+        $query->where('category_id', $request->category_id);
+    }
+
+    // 検索結果を取得
+    $todos = $query->orderBy('created_at', 'desc')->get();
+
+    // カテゴリ一覧を取得
+    $categories = Category::all();
+
+    return view('index', compact('todos', 'categories'));
+}
 }

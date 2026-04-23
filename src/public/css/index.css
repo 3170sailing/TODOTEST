@@ -11,6 +11,11 @@
     border-radius: 4px;
 } */
 
+.section__title {
+    margin: 0 auto;
+    width: 70%;
+}
+
 /* 成功メッセージ */
 .todo__alert--success {
     width: 100%;
@@ -53,7 +58,7 @@
 }
 
 /* 作成フォーム全体 */
-.create-form {
+.create-form, .search-form {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,13 +67,15 @@
 }
 
 /* 入力欄とボタンを左寄せでまとめる */
-.create-form__item {
+.create-form__item, .search-form__item {
     width: 80%;
+    display: flex;
 }
 
 /* Todo入力欄 */
-.create-form__item-input {
-    width: 100%;
+.create-form__item-input, .search-form__item-input {
+    margin-right: 10px;
+    width: 70%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 3px;
@@ -76,14 +83,23 @@
     box-sizing: border-box;
 }
 
+.create-form__item-select, .search-form__item-select {
+    padding: 10px;
+    width: 30%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+}
+
 /* 作成ボタンエリア */
-.create-form__button {
+.create-form__button, .search-form__button {
     width: 15%;
     text-align: right;
 }
 
 /* 作成ボタン */
-.create-form__button-submit {
+.create-form__button-submit, .search-form__button-submit {
     width: 100%;
     padding: 10px 0;
     border: none;
@@ -98,6 +114,7 @@
 .todo-table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 /* ヘッダー行 */
@@ -107,10 +124,25 @@
 
 /* 見出しセル */
 .todo-table__header {
+    width: 100%;
     padding: 20px 10px;
     text-align: left;
-    font-size: 24px;
+}
+
+.todo-table__header-span {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 16px;
     font-weight: bold;
+    vertical-align: middle;
+}
+
+.todo-table__header-span:first-child {
+    width: 35%;
+}
+
+.todo-table__header-span:nth-child(2) {
+    width: 25%;
 }
 
 /* データセル */
@@ -134,7 +166,8 @@
 
 /* 更新フォームの入力欄側 */
 .update-form__item {
-    width: 50%;
+    width: 40%;
+    line-height: 50%;
 }
 
 /* 更新入力欄 */
@@ -142,6 +175,11 @@
     width: 100%;
     outline: none;
     border: none;
+}
+
+.update-form__item-p {
+    text-align: left;
+    font-size: 13px;
 }
 
 /* 更新ボタン側 */

@@ -7,9 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class TodoRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
+     * 認可
      */
     public function authorize()
     {
@@ -17,15 +15,16 @@ class TodoRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
+     * バリデーションルール
      */
     public function rules()
     {
         return [
-            // Todoは必須、文字列、20文字以内
+            // Todo内容は必須、20文字以内
             'content' => ['required', 'string', 'max:20'],
+
+            // カテゴリは必須
+            'category_id' => ['required'],
         ];
     }
 
@@ -36,8 +35,8 @@ class TodoRequest extends FormRequest
     {
         return [
             'content.required' => 'Todoを入力してください',
-            'content.string' => 'Todoを文字列で入力してください',
-            'content.max' => 'Todoを20文字以下で入力してください',
+            'content.max' => 'Todoは20文字以内で入力してください',
+            'category_id.required' => 'カテゴリを選択してください',
         ];
     }
 }

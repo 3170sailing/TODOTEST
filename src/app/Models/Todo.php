@@ -9,5 +9,10 @@ class Todo extends Model
 {
     use HasFactory;
     // 一括代入を許可するカラム
-    protected $fillable = ['content'];
+    protected $fillable = ['content', 'category_id'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

@@ -1,0 +1,183 @@
+/* =========================
+   全体
+========================= */
+.category__content {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px 30px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+/* =========================
+   メッセージ
+========================= */
+.category__alert {
+    padding: 10px 15px;
+    margin-bottom: 30px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.category__alert--success {
+    border: 1px solid #badbcc;
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.category__alert--danger {
+    border: 1px solid #f5c2c7;
+    background: #f8d7da;
+    color: #842029;
+}
+
+.category__alert--danger-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.category__alert--danger-item {
+    line-height: 1.5;
+}
+
+/* =========================
+   作成フォーム
+========================= */
+.create-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.create-form__item {
+    width: 70%;
+}
+
+.create-form__item-input {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.create-form__button {
+    width: 20%;
+    text-align: right;
+}
+
+.create-form__button-submit {
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* =========================
+   見出し
+========================= */
+.category-table__heading {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.category-table__heading-text {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* =========================
+   テーブル
+========================= */
+.category-table__inner {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.category-table__row {
+    border-bottom: 1px solid #ddd;
+}
+
+.category-table__item {
+    padding: 12px 0;
+    vertical-align: middle;
+}
+
+.category-table__item--content {
+    width: 80%;
+}
+
+.category-table__item--button {
+    width: 20%;
+    text-align: right;
+}
+
+/* =========================
+   更新フォーム
+========================= */
+.update-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.update-form__group {
+    flex: 1;
+}
+
+.update-form__item-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: #333;
+}
+
+/* =========================
+   ボタン
+========================= */
+.update-form__button-submit {
+    width: 45px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    background: #0000ff;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.delete-form__button {
+    text-align: right;
+}
+
+.delete-form__button-submit {
+    width: 45px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    background: #ff0000;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* =========================
+   ホバー
+========================= */
+.create-form__button-submit:hover,
+.update-form__button-submit:hover,
+.delete-form__button-submit:hover {
+    opacity: 0.8;
+}
