@@ -1,6 +1,6 @@
 # laravel-docker-template
 
-**### 環境構築**
+### 環境構築
 
 1. プロジェクトをクローン
 
@@ -91,6 +91,7 @@ php artisan db:seed
 ## ER図
 ![alt](ER.png)
 
+##　テーブル設計書
 | カラム名        | 型               | Primary key | Unique key | Not null | Foreign key | 説明                  |
 | ----------- | --------------- | ----------- | ---------- | -------- | ----------- | ------------------- |
 | id          | unsigned bigint | ○           |            | ○        |             | 主キー                 |
